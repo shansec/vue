@@ -45,6 +45,7 @@ export function initMixin(Vue: typeof Component) {
       // internal component options needs special treatment.
       initInternalComponent(vm, options as any)
     } else {
+      // 自定义组件选项合并
       vm.$options = mergeOptions(
         resolveConstructorOptions(vm.constructor as any),
         options || {},
@@ -61,10 +62,10 @@ export function initMixin(Vue: typeof Component) {
     vm._self = vm
     initLifecycle(vm)
     initEvents(vm)
-    initRender(vm)
+    initRender(vm) // 初始化 $createElement
     callHook(vm, 'beforeCreate', undefined, false /* setContext */)
     initInjections(vm) // resolve injections before data/props
-    initState(vm)
+    initState(vm) // 初始化 props ---> methods ---> data ---> computed ---> watch
     initProvide(vm) // resolve provide after data/props
     callHook(vm, 'created')
 

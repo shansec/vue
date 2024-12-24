@@ -56,6 +56,7 @@ export default class Dep {
     }
   }
 
+  // 当一个响应式属性被访问时，当前观察者加入到依赖列表中
   depend(info?: DebuggerEventExtraInfo) {
     if (Dep.target) {
       Dep.target.addDep(this)
@@ -67,7 +68,7 @@ export default class Dep {
       }
     }
   }
-
+  // 当响应式属性被修改时，通知所有依赖该属性的观察者，更新 
   notify(info?: DebuggerEventExtraInfo) {
     // stabilize the subscriber list first
     const subs = this.subs.filter(s => s) as DepTarget[]
