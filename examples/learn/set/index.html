@@ -2,12 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>init</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>set</title>
   </head>
   <body>
     <div id="app">
-      <p>{{ message }}</p>
+      <p>{{msg}}</p>
     </div>
   </body>
   <script src="../../../dist/vue.js"></script>
@@ -16,13 +16,14 @@
       el: '#app',
       data() {
         return {
-          message: 'init'
+          msg: 'nextTick',
+          person: {
+            name: 'John'
+          }
         }
       }
     })
-    setTimeout(() => {
-      debugger
-      vm.message = 'init1'
-    }, 1000)
+    debugger
+    Vue.set(vm.person, 'age', 11)
   </script>
 </html>

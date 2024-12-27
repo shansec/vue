@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>nextTick</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{msg}}</p>
+  </div>
+</body>
+<script src="../../../dist/vue.js"></script>
+<script>
+  const vm = new Vue({
+    el: '#app',
+    data() {
+      return {
+        msg: 'nextTick'
+      }
+    }
+  })
+  vm.msg = 'nextTick update'
+  console.log(vm.$el.textContent)
+  debugger
+  Vue.nextTick(() => {
+    console.log(vm.$el.textContent)
+  })
+</script>
+</html>
