@@ -156,6 +156,7 @@ function initData(vm: Component) {
             `Use prop default value instead.`,
           vm
         )
+        // 检查 key 是否以 $ 和 _ 开头
     } else if (!isReserved(key)) {
       proxy(vm, `_data`, key)
     }

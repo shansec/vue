@@ -24,6 +24,7 @@ export function createCompilerCreator(baseCompile: Function): Function {
       if (options) {
         if (__DEV__ && options.outputSourceRange) {
           // $flow-disable-line
+          // 匹配字符串开头空白的长度
           const leadingSpaceLength = template.match(/^\s*/)![0].length
 
           warn = (

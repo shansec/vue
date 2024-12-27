@@ -62,7 +62,7 @@ export function initMixin(Vue: typeof Component) {
     vm._self = vm
     initLifecycle(vm)
     initEvents(vm)
-    initRender(vm) // 初始化 $createElement
+    initRender(vm) // 初始化 $slot $createElement
     callHook(vm, 'beforeCreate', undefined, false /* setContext */)
     initInjections(vm) // resolve injections before data/props
     initState(vm) // 初始化 props ---> methods ---> data ---> computed ---> watch

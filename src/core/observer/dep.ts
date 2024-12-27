@@ -31,6 +31,7 @@ export interface DepTarget extends DebuggerOptions {
 export default class Dep {
   static target?: DepTarget | null
   id: number
+  // 存放 watcher 的数组
   subs: Array<DepTarget | null>
   // pending subs cleanup
   _pending = false
