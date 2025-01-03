@@ -67,6 +67,7 @@ Vue.prototype.$mount = function (
         mark('compile')
       }
       // 将 template 传递给 compileToFunctions 函数，把 模板编译成 render 函数，并挂在到 option 上
+      // compileToFunctions ---> compile ---> baseCompile ---> parse ---> generate
       const { render, staticRenderFns } = compileToFunctions(
         template,
         {
@@ -88,6 +89,7 @@ Vue.prototype.$mount = function (
       }
     }
   }
+  debugger
   return mount.call(this, el, hydrating)
 }
 

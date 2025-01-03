@@ -26,7 +26,9 @@ const startTagClose = /^\s*(\/?)>/
 const endTag = new RegExp(`^<\\/${qnameCapture}[^>]*>`)
 const doctype = /^<!DOCTYPE [^>]+>/i
 // #7298: escape - to avoid being passed as HTML comment when inlined in page
+// 用于匹配以 <!-- 开头的字符串
 const comment = /^<!\--/
+// 用于匹配以 <![ 开头的字符串
 const conditionalComment = /^<!\[/
 
 // Special Elements (can contain anything)

@@ -11,10 +11,12 @@ export const createCompiler = createCompilerCreator(function baseCompile(
   template: string,
   options: CompilerOptions
 ): CompiledResult {
+  // html 转换成 ast
   const ast = parse(template.trim(), options)
   if (options.optimize !== false) {
     optimize(ast, options)
   }
+  // ast 转换成 虚拟DOM
   const code = generate(ast, options)
   return {
     ast,

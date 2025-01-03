@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>array</title>
+  </head>
+  <body>
+    <div id="app">
+      <template v-for="item in arr">
+        <p>{{item}}</p>
+      </template>
+    </div>
+    <script src="../../../dist/vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data() {
+          return {
+            arr: [1, 2, 3]
+          }
+        }
+      })
+      debugger
+      // 数组元素改动会被监听到，当元素是对象时，对象的属性的改动无法监听到
+      vm.arr.push(4)
+    </script>
+  </body>
+</html>

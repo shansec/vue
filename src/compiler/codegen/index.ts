@@ -71,6 +71,7 @@ export function generate(
   }
 }
 
+// 将抽象语法树（AST）中的一个元素节点转换为渲染函数的代码字符串
 export function genElement(el: ASTElement, state: CodegenState): string {
   if (el.parent) {
     el.pre = el.pre || el.parent.pre

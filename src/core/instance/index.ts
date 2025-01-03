@@ -16,12 +16,12 @@ function Vue(options) {
 //@ts-expect-error Vue has function type
 initMixin(Vue)
 //@ts-expect-error Vue has function type
-stateMixin(Vue)
+stateMixin(Vue) // $set $delete $watch
 //@ts-expect-error Vue has function type
-eventsMixin(Vue)
+eventsMixin(Vue)  // $on $emit $off $once
 //@ts-expect-error Vue has function type
-lifecycleMixin(Vue)
+lifecycleMixin(Vue) // _update $forceUpdate $destroy
 //@ts-expect-error Vue has function type
-renderMixin(Vue)
+renderMixin(Vue)  // _render $nextTick()
 
 export default Vue as unknown as GlobalAPI
