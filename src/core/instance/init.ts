@@ -33,6 +33,7 @@ export function initMixin(Vue: typeof Component) {
     // avoid instances from being observed
     vm.__v_skip = true
     // effect scope
+    // 副作用
     vm._scope = new EffectScope(true /* detached */)
     // #13134 edge case where a child component is manually created during the
     // render of a parent component

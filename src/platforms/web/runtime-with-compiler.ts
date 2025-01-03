@@ -66,7 +66,6 @@ Vue.prototype.$mount = function (
       if (__DEV__ && config.performance && mark) {
         mark('compile')
       }
-      debugger
       // 将 template 传递给 compileToFunctions 函数，把 模板编译成 render 函数，并挂在到 option 上
       const { render, staticRenderFns } = compileToFunctions(
         template,

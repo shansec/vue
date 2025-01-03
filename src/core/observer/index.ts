@@ -160,6 +160,7 @@ export function defineReactive(
       const value = getter ? getter.call(obj) : val
       if (Dep.target) {
         if (__DEV__) {
+          // 依赖收集
           dep.depend({
             target: obj,
             type: TrackOpTypes.GET,
@@ -198,6 +199,7 @@ export function defineReactive(
       }
       childOb = shallow ? newVal && newVal.__ob__ : observe(newVal, false, mock)
       if (__DEV__) {
+        // 更新通知
         dep.notify({
           type: TriggerOpTypes.SET,
           target: obj,
