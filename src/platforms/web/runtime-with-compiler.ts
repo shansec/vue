@@ -89,7 +89,6 @@ Vue.prototype.$mount = function (
       }
     }
   }
-  debugger
   return mount.call(this, el, hydrating)
 }
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>render</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{message}}</p>
+      <AchoredHeading :level="1"></AchoredHeading>
+    </div>
+    <script src="../../../dist/vue.js"></script>
+    <script>
+      const vm = new Vue({
+        data() {
+          return {
+            message: 'mount'
+          }
+        }
+      })
+      Vue.component('AchoredHeading', {
+        render: function (createElement, context) {
+          return createElement(
+            'h' + this.level, // 标签名称
+            this.$slots.default // 子节点数组
+          )
+        },
+        props: {
+          level: {
+            type: Number,
+            required: true
+          }
+        }
+      })
+      vm.$mount('#app')
+    </script>
+  </body>
+</html>

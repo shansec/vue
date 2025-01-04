@@ -127,9 +127,9 @@ export function parseHTML(html, options: HTMLParserOptions) {
         }
 
         // Start tag:
-        const startTagMatch = parseStartTag()
+        const startTagMatch = parseStartTag() // 开始标签属性解析
         if (startTagMatch) {
-          handleStartTag(startTagMatch)
+          handleStartTag(startTagMatch) // 处理标签的属性 for，if，once，v-model 等等
           if (shouldIgnoreFirstNewline(startTagMatch.tagName, html)) {
             advance(1)
           }
@@ -288,7 +288,7 @@ export function parseHTML(html, options: HTMLParserOptions) {
     }
 
     if (options.start) {
-      options.start(tagName, attrs, unary, match.start, match.end)
+      options.start(tagName, attrs, unary, match.start, match.end)  // tagName: 标签的名称，attrs: 标签的属性，unary: 是否为单一标签，mathch.start: 标签开始位置，match.end: 标签结束位置
     }
   }
 

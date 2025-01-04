@@ -211,7 +211,7 @@ export function parse(template: string, options: CompilerOptions): ASTElement {
       )
     }
   }
-
+  debugger
   parseHTML(template, {
     warn,
     expectHTML: options.expectHTML,
@@ -242,7 +242,7 @@ export function parse(template: string, options: CompilerOptions): ASTElement {
         if (options.outputSourceRange) {
           element.start = start
           element.end = end
-          element.rawAttrsMap = element.attrsList.reduce((cumulated, attr) => {
+          element.rawAttrsMap = element.attrsList.reduce((cumulated, attr) => { // cumulated 初始值为 {}
             cumulated[attr.name] = attr
             return cumulated
           }, {})
@@ -262,7 +262,6 @@ export function parse(template: string, options: CompilerOptions): ASTElement {
           }
         })
       }
-
       if (isForbiddenTag(element) && !isServerRendering()) {
         element.forbidden = true
         __DEV__ &&
@@ -280,7 +279,7 @@ export function parse(template: string, options: CompilerOptions): ASTElement {
         element = preTransforms[i](element, options) || element
       }
 
-      if (!inVPre) {
+      if (!inVPre) {   
         processPre(element)
         if (element.pre) {
           inVPre = true
@@ -293,6 +292,7 @@ export function parse(template: string, options: CompilerOptions): ASTElement {
         processRawAttrs(element)
       } else if (!element.processed) {
         // structural directives
+        // 处理指令，先 for 后 if
         processFor(element)
         processIf(element)
         processOnce(element)
@@ -422,6 +422,7 @@ export function parse(template: string, options: CompilerOptions): ASTElement {
 }
 
 function processPre(el) {
+  // v-pre: 跳过这个元素和它的子元素的编译过程。
   if (getAndRemoveAttr(el, 'v-pre') != null) {
     el.pre = true
   }
