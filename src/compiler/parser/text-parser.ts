@@ -1,7 +1,7 @@
 import { cached } from 'shared/util'
 import { parseFilters } from './filter-parser'
 
-const defaultTagRE = /\{\{((?:.|\r?\n)+?)\}\}/g
+const defaultTagRE = /\{\{((?:.|\r?\n)+?)\}\}/g   // 用于匹配 Vue 模板中的插值表达式
 const regexEscapeRE = /[-.*+?^${}()|[\]\/\\]/g
 
 const buildRegex = cached(delimiters => {
@@ -20,7 +20,7 @@ export function parseText(
   delimiters?: [string, string]
 ): TextParseResult | void {
   //@ts-expect-error
-  const tagRE = delimiters ? buildRegex(delimiters) : defaultTagRE
+  const tagRE = delimiters ? buildRegex(delimiters) : defaultTagRE    // defaultTagRE 用来匹配插值表达式
   if (!tagRE.test(text)) {
     return
   }

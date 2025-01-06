@@ -234,7 +234,7 @@ export function parseHTML(html, options: HTMLParserOptions) {
         match.attrs.push(attr)
       }
       if (end) {
-        match.unarySlash = end[1]
+        match.unarySlash = end[1] // 判断是否为单一标签
         advance(end[0].length)
         match.end = index
         return match
@@ -276,7 +276,7 @@ export function parseHTML(html, options: HTMLParserOptions) {
       }
     }
 
-    if (!unary) {
+    if (!unary) {   // 如果不是单一标签直接入栈
       stack.push({
         tag: tagName,
         lowerCasedTag: tagName.toLowerCase(),

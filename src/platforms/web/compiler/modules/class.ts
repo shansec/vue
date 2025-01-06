@@ -2,7 +2,7 @@ import { parseText } from 'compiler/parser/text-parser'
 import { getAndRemoveAttr, getBindingAttr, baseWarn } from 'compiler/helpers'
 import { ASTElement, CompilerOptions, ModuleOptions } from 'types/compiler'
 
-function transformNode(el: ASTElement, options: CompilerOptions) {
+function transformNode(el: ASTElement, options: CompilerOptions) {    // 用于处理模板中的 class 属性（包括静态属性和动态属性）
   const warn = options.warn || baseWarn
   const staticClass = getAndRemoveAttr(el, 'class')
   if (__DEV__ && staticClass) {

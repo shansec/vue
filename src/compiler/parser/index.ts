@@ -31,7 +31,7 @@ import {
 export const onRE = /^@|^v-on:/
 export const dirRE = process.env.VBIND_PROP_SHORTHAND
   ? /^v-|^@|^:|^\.|^#/
-  : /^v-|^@|^:|^#/
+  : /^v-|^@|^:|^#/  // 用于检测模板中是否包含以 v-、@、: 开头的属性
 export const forAliasRE = /([\s\S]*?)\s+(?:in|of)\s+([\s\S]*)/
 export const forIteratorRE = /,([^,\}\]]*)(?:,([^,\}\]]*))?$/
 const stripParensRE = /^\(|\)$/g
@@ -211,7 +211,7 @@ export function parse(template: string, options: CompilerOptions): ASTElement {
       )
     }
   }
-  debugger
+
   parseHTML(template, {
     warn,
     expectHTML: options.expectHTML,

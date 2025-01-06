@@ -51,6 +51,7 @@ export function proxy(target: Object, sourceKey: string, key: string) {
 
 export function initState(vm: Component) {
   const opts = vm.$options
+  debugger
   if (opts.props) initProps(vm, opts.props)
 
   // Composition API

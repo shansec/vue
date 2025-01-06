@@ -3,7 +3,7 @@ import { parseStyleText } from 'web/util/style'
 import { getAndRemoveAttr, getBindingAttr, baseWarn } from 'compiler/helpers'
 import { ASTElement, CompilerOptions, ModuleOptions } from 'types/compiler'
 
-function transformNode(el: ASTElement, options: CompilerOptions) {
+function transformNode(el: ASTElement, options: CompilerOptions) {    // 用于处理模板中的 style 属性（包括静态属性和动态属性）
   const warn = options.warn || baseWarn
   const staticStyle = getAndRemoveAttr(el, 'style')
   if (staticStyle) {

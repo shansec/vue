@@ -91,7 +91,7 @@ export function createCompileToFunctionFn(compile: Function): Function {
     // turn code into functions
     const res: any = {}
     const fnGenErrors: any[] = []
-    res.render = createFunction(compiled.render, fnGenErrors)
+    res.render = createFunction(compiled.render, fnGenErrors)   // 把 render 字符串创建 render 函数
     res.staticRenderFns = compiled.staticRenderFns.map(code => {
       return createFunction(code, fnGenErrors)
     })

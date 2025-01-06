@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>props</title>
+  </head>
+  <body>
+    <div id="app">{{ message }}</div>
+    <script src="../../../dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        props: {
+          title: {
+            type: String,
+            default: 'title'
+          }
+        },
+        data() {
+          return {
+            message: 'props'
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
