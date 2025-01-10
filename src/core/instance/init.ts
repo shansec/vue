@@ -76,7 +76,7 @@ export function initMixin(Vue: typeof Component) {
       mark(endTag)
       measure(`vue ${vm._name} init`, startTag, endTag)
     }
-
+    debugger
     if (vm.$options.el) {
       vm.$mount(vm.$options.el)
     }
